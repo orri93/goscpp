@@ -88,8 +88,7 @@ list(APPEND gos_cpp_library_public_header
 # "${CMAKE_CURRENT_SOURCE_DIR}/include/gos/dynamic.h"
 # "${CMAKE_CURRENT_SOURCE_DIR}/include/gos/geometry.h"
 # "${CMAKE_CURRENT_SOURCE_DIR}/include/gos/statistics.h"
-# "${CMAKE_CURRENT_SOURCE_DIR}/include/gos/interpolate.h"
-)
+  "${CMAKE_CURRENT_SOURCE_DIR}/include/gos/interpolate.h")
 
 if(CLANG_TIDY)
   find_program(CLANG_TIDY_EXE
@@ -162,24 +161,24 @@ if (BUILD_TESTS)
         set(gtest_force_shared_crt ON CACHE BOOL "Use Shared CRT")
       #endif ()
     endif (MSVC)
-    if (GOS_EXPERIMENTAL_INSTRUCT_GOOGLE_TEST_PATH)
-      set(GOS_EXPERIMENTAL_GOOGLE_TEST_PATH
-        "${GOS_EXPERIMENTAL_INSTRUCT_GOOGLE_TEST_PATH}")
+    if (GOS_CPP_INSTRUCT_GOOGLE_TEST_PATH)
+      set(GOS_CPP_GOOGLE_TEST_PATH
+        "${GOS_CPP_INSTRUCT_GOOGLE_TEST_PATH}")
     else ()
-      set(GOS_EXPERIMENTAL_GOOGLE_TEST_PATH
+      set(GOS_CPP_GOOGLE_TEST_PATH
         "${CMAKE_CURRENT_SOURCE_DIR}/extern/googletest")
       add_subdirectory(extern/googletest)
     endif ()
-    set(gos_experimental_unit_testing_dir
+    set(gos_cpp_unit_testing_dir
       "${CMAKE_CURRENT_SOURCE_DIR}/tests")
-    set(gos_experimental_unit_testing_gmock_include_dir
-      "${GOS_EXPERIMENTAL_GOOGLE_TEST_PATH}/googlemock/include")
-    set(gos_experimental_unit_testing_gtest_include_dir
-      "${GOS_EXPERIMENTAL_GOOGLE_TEST_PATH}/googletest/include")
-    list(APPEND gos_experimental_gtest_include
-      ${gos_experimental_unit_testing_gmock_include_dir}
-      ${gos_experimental_unit_testing_gtest_include_dir})
-    list(APPEND gos_experimental_gtest_libraries
+    set(gos_cpp_unit_testing_gmock_include_dir
+      "${GOS_CPP_GOOGLE_TEST_PATH}/googlemock/include")
+    set(gos_cpp_unit_testing_gtest_include_dir
+      "${GOS_CPP_GOOGLE_TEST_PATH}/googletest/include")
+    list(APPEND gos_cpp_gtest_include
+      ${gos_cpp_unit_testing_gmock_include_dir}
+      ${gos_cpp_unit_testing_gtest_include_dir})
+    list(APPEND gos_cpp_gtest_libraries
       gtest
       gmock
       gmock_main)

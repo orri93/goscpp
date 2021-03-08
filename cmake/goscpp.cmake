@@ -3,7 +3,7 @@ macro (goscpp_get_properties)
     INTERFACE_INCLUDE_DIRECTORIES)
   get_target_property(goscpp_compile_definitions gosc
     INTERFACE_COMPILE_DEFINITIONS)
-  set(goscpp_target gosc)
+  set(goscpp_target goscpp)
   if (GOS_CPP_EMSCRIPTEN_BUILD)
     get_target_property(goscpp_wasm_library gosc RESOURCE)
   endif ()

@@ -2,32 +2,33 @@ if (GOS_USE_GTEST_PACKAGE OR GOS_USE_GTEST_DISCOVER)
   include(GoogleTest)
 endif ()
 
-set(gos_cpp_gos_test_target gosctest)
-set(gos_cpp_gos_test_name gosctest)
+set(gos_cpp_gos_test_target goscpptest)
+set(gos_cpp_gos_test_name goscpptest)
 
 list(APPEND gos_cpp_gos_test_source
   interpolate.cpp
-  statistics.cpp
-  geometry.cpp
-  dynamic.cpp
+# statistics.cpp
+# geometry.cpp
+# dynamic.cpp
   nearest.cpp
-  screen.cpp
-  signal.cpp
-  noise.cpp
-  color.cpp
-  scale.cpp
-  text.cpp
-  data.cpp)
+# screen.cpp
+# signal.cpp
+# noise.cpp
+# color.cpp
+# scale.cpp
+# text.cpp
+# data.cpp
+)
 
 #list(APPEND gos_cpp_gos_test_definitions
 #  _CRT_SECURE_NO_WARNINGS)
 
 list(APPEND gos_cpp_gos_test_include
-  ${gos_experimental_gtest_include}
+  ${gos_cpp_gtest_include}
   ${gos_cpp_library_include})
 
 list(APPEND gos_cpp_gos_test_libraries
-  ${gos_experimental_gtest_libraries}
+  ${gos_cpp_gtest_libraries}
   ${gos_cpp_library_target})
 
 if (HAVE_LIB_M)
