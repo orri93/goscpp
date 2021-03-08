@@ -4,7 +4,7 @@
 namespace gos {
 namespace nearest {
 
-template<T>
+template<typename T>
 T neighbor(const T& first, const T& second, const T& value) {
   T fd = first - value;
   T sd = second - value;

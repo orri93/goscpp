@@ -148,7 +148,7 @@ endif()
 #list(APPEND gos_cpp_include
 #  ${Boost_INCLUDE_DIRS})
  
-# add_subdirectory(src)
+add_subdirectory(src)
 
 if (BUILD_TESTS)
   enable_testing()

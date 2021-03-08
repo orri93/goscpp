@@ -11,21 +11,21 @@ list(APPEND gos_cpp_gos_test_source
 # geometry.cpp
 # dynamic.cpp
   nearest.cpp
-# screen.cpp
+  screen.cpp
 # signal.cpp
-# noise.cpp
-# color.cpp
-# scale.cpp
-# text.cpp
-# data.cpp
-)
+  noise.cpp
+  range.cpp
+  color.cpp
+  scale.cpp
+  text.cpp)
+# data.cpp)
 
 #list(APPEND gos_cpp_gos_test_definitions
 #  _CRT_SECURE_NO_WARNINGS)
 
 list(APPEND gos_cpp_gos_test_include
   ${gos_cpp_gtest_include}
-  ${gos_cpp_library_include})
+  ${gos_cpp_include})
 
 list(APPEND gos_cpp_gos_test_libraries
   ${gos_cpp_gtest_libraries}

@@ -14,43 +14,43 @@ TEST(GosNearestTest, Neighbor) {
   second = 20.0;
 
   value = 5.0;
-  result = gos_nearest_neighbor(first, second, value);
-  EXPECT_GT(0, result);
+  result = neighbor(first, second, value);
+  EXPECT_GT(0.0, result);
 
   value = 12.0;
-  result = gos_nearest_neighbor(first, second, value);
-  EXPECT_GT(0, result);
+  result = neighbor(first, second, value);
+  EXPECT_GT(0.0, result);
 
   value = 18.0;
-  result = gos_nearest_neighbor(first, second, value);
-  EXPECT_LT(0, result);
+  result = neighbor(first, second, value);
+  EXPECT_LT(0.0, result);
 
   value = 25.0;
-  result = gos_nearest_neighbor(first, second, value);
-  EXPECT_LT(0, result);
+  result = neighbor(first, second, value);
+  EXPECT_LT(0.0, result);
 }
 
 TEST(GosNearestTest, TimeNeighbor) {
   time_t first, second, value;
   time_t result;
 
-  first = 10.0;
-  second = 20.0;
+  first = 10;
+  second = 20;
 
-  value = 5.0;
-  result = gos_nearest_neighbor(first, second, value);
+  value = 5;
+  result = neighbor(first, second, value);
   EXPECT_GT(0, result);
 
-  value = 12.0;
-  result = gos_nearest_neighbor(first, second, value);
+  value = 12;
+  result = neighbor(first, second, value);
   EXPECT_GT(0, result);
 
-  value = 18.0;
-  result = gos_nearest_neighbor(first, second, value);
+  value = 18;
+  result = neighbor(first, second, value);
   EXPECT_LT(0, result);
 
-  value = 25.0;
-  result = gos_nearest_neighbor(first, second, value);
+  value = 25;
+  result = neighbor(first, second, value);
   EXPECT_LT(0, result);
 }
 
