@@ -357,16 +357,16 @@ namespace s {
 template<typename T = double, typename U = uint8_t>
 abc<T> fa(const ::gos::color::rgb<U>& rgb) {
   return abc<T>(
-    ::gos::color::s::rgb::f(rgb.r()),
-    ::gos::color::s::rgb::f(rgb.g()),
-    ::gos::color::s::rgb::f(rgb.b()));
+    ::gos::color::s::rgb::f(static_cast<T>(rgb.r())),
+    ::gos::color::s::rgb::f(static_cast<T>(rgb.g())),
+    ::gos::color::s::rgb::f(static_cast<T>(rgb.b())));
 }
 template<typename T = double, typename U = uint8_t>
 abc<T> ia(const ::gos::color::rgb<U>& rgb) {
   return abc<T>(
-    ::gos::color::s::rgb::i(rgb.r()),
-    ::gos::color::s::rgb::i(rgb.g()),
-    ::gos::color::s::rgb::i(rgb.b()));
+    ::gos::color::s::rgb::i(static_cast<T>(rgb.r())),
+    ::gos::color::s::rgb::i(static_cast<T>(rgb.g())),
+    ::gos::color::s::rgb::i(static_cast<T>(rgb.b())));
 }
 } // namespace s
 
@@ -420,8 +420,8 @@ void create(
   const ::std::vector<rgb<T>>& stops,
   const ::std::vector<int>& sizes,
   const double& gamma) {
-  size_t count = ::std::min(stops.size(), sizes.size());
-  for (size_t i = 0; i < count - 1; i++) {
+  size_t count = ::std::min(stops.size() - 1, sizes.size());
+  for (size_t i = 0; i < count; i++) {
     ::gos::color::perceptual::steps(
       gradient,
       stops.at(i),
