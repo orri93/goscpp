@@ -1,6 +1,8 @@
 #ifndef GOSPP_RANGE_H_
 #define GOSPP_RANGE_H_
 
+#include <limits>
+
 namespace gos {
 namespace range {
 
@@ -27,6 +29,25 @@ public:
 
   T difference() {
     return _to - _from;
+  }
+
+  void reset() {
+    _from = ::std::numeric_limits<T>::max();
+    _to = ::std::numeric_limits<T>::min();
+  }
+
+  void reset(const T& minimum, const T& maximum) {
+    _from = maximum;
+    _to = minimum;
+  }
+
+  void update(const T& value) {
+    if (value < _from) {
+      _from = value;
+    }
+    if (value > _to) {
+      _to = value;
+    }
   }
 
 private:

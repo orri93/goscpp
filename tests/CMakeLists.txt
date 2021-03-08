@@ -17,6 +17,7 @@ list(APPEND gos_cpp_gos_test_source
   range.cpp
   color.cpp
   scale.cpp
+  time.cpp
   text.cpp)
 # data.cpp)
 
