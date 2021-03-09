@@ -8,8 +8,8 @@ project(GosCpp
 # Build Options
 option(BUILD_TESTS "Build tests" OFF)
 option(BUILD_EXAMPLES "Build examples" OFF)
-option(GOS_CPP_EMSCRIPTEN_BUILD "Build a Web Assembly Library with emscripten" OFF)
 option(BUILD_SHARED_LIBS "Build using shared libraries" OFF)
+option(GOS_CPP_EMSCRIPTEN_BUILD "Build a Web Assembly Library with emscripten" OFF)
 
 # Tidy Options
 option(CLANG_TIDY_FIX_ERRORS
