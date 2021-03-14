@@ -35,6 +35,11 @@ if (gos_cpp_library_definitions)
     ${gos_cpp_library_definitions})
 endif ()
 
+set_target_properties(${gos_cpp_library_target} PROPERTIES
+  CXX_STANDARD 17
+  CXX_STANDARD_REQUIRED ON
+  CXX_EXTENSIONS OFF)
+
 target_include_directories(${gos_cpp_library_target} PUBLIC
   ${gos_cpp_library_include})
 
