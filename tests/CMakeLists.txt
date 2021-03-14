@@ -44,6 +44,11 @@ if (gos_cpp_gos_test_definitions)
     ${gos_cpp_gos_test_definitions})
 endif ()
 
+set_target_properties(${gos_cpp_gos_test_target} PROPERTIES
+  CXX_STANDARD 17
+  CXX_STANDARD_REQUIRED ON
+  CXX_EXTENSIONS OFF)
+
 target_include_directories(${gos_cpp_gos_test_target} PUBLIC
   ${gos_cpp_gos_test_include})
 
