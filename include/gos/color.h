@@ -25,6 +25,10 @@
 namespace gos {
 namespace color {
 
+namespace from {
+bool text(uint32_t& color, ::std::string text);
+}
+
 template<typename T = double>
 T min(const T& a, const T& b, const T& c) {
   return ::std::min(a, ::std::min(b, c));
@@ -300,17 +304,10 @@ public:
   }
 
   bool assign(::std::string text) {
-    size_t l = text.length();
-    if (l > 0 && text.at(0) == '#') {
-      text = text.substr(1);
-      l--;
-    }
-    if (l > 0) {
-      long n = strtol(text.c_str(), NULL, 16);
-      assign(n);
-      return true;
-    }
-    return false;
+    uint32_t n;
+    bool result = ::gos::color::from::text(n, text);
+    assign(n);
+    return result;
   }
 
   void setr(const T& r) { _r = r; }

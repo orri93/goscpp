@@ -50,6 +50,26 @@ bool wdigitsorperiod(const ::std::wstring& text) {
   return result;
 }
 
+bool hex(const ::std::string& text) {
+  bool result = true;
+  for (char ch : text) {
+    if (!(result &= (::isxdigit(ch) > 0))) {
+      break;
+    }
+  }
+  return result;
+}
+
+bool whex(const ::std::wstring& text) {
+  bool result = true;
+  for (wchar_t ch : text) {
+    if (!(result &= (::iswxdigit(ch) > 0))) {
+      break;
+    }
+  }
+  return result;
+}
+
 } // namespace all
 } // namespace are
 

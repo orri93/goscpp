@@ -1,3 +1,6 @@
+#include <cstdint>
+
+#include <string>
 #include <vector>
 
 #include <gtest/gtest.h>
@@ -10,6 +13,37 @@
 
 namespace gos {
 namespace color {
+
+TEST(GosColorTest, Text) {
+  uint32_t color;
+  ::std::string text;
+  bool result;
+
+  text = "#07049b";
+  result = ::gos::color::from::text(color, text);
+  EXPECT_TRUE(result);
+  EXPECT_EQ(0x07049b, color);
+
+  text = "f4ec04";
+  result = ::gos::color::from::text(color, text);
+  EXPECT_TRUE(result);
+  EXPECT_EQ(0xf4ec04, color);
+
+  text = "lightgrey";
+  result = ::gos::color::from::text(color, text);
+  EXPECT_TRUE(result);
+  EXPECT_EQ(0xd3d3d3, color);
+
+  text = "hotpink";
+  result = ::gos::color::from::text(color, text);
+  EXPECT_TRUE(result);
+  EXPECT_EQ(0xff69b4, color);
+
+  text = "AliceBlue";
+  result = ::gos::color::from::text(color, text);
+  EXPECT_TRUE(result);
+  EXPECT_EQ(0xf0f8ff, color);
+}
 
 TEST(GosColorTest, Assign) {
   ::gos::color::abc<> c;
@@ -45,6 +79,10 @@ TEST(GosColorTest, Assign) {
   EXPECT_EQ(0xf4, rgb.r());
   EXPECT_EQ(0xec, rgb.g());
   EXPECT_EQ(0x04, rgb.b());
+  rgb.assign("AliceBlue"); /* Named Color */
+  EXPECT_EQ(0xf0, rgb.r());
+  EXPECT_EQ(0xf8, rgb.g());
+  EXPECT_EQ(0xff, rgb.b());
 }
 
 TEST(GosColorTest, IsBlack) {

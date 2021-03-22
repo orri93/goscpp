@@ -13,6 +13,8 @@ bool digits(const ::std::string& text);
 bool digitsorperiod(const ::std::string& text);
 bool wdigits(const ::std::wstring& text);
 bool wdigitsorperiod(const ::std::wstring& text);
+bool hex(const ::std::string& text);
+bool whex(const ::std::wstring& text);
 
 } // namespace all
 } // namespace are

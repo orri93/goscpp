@@ -7,7 +7,7 @@ list(APPEND gos_cpp_library_source
 # screen.cpp
 # signal.cpp
 # noise.cpp
-# color.cpp
+  color.cpp
 # scale.cpp
   text.cpp)
 # data.cpp)
