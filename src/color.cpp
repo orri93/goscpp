@@ -1,4 +1,7 @@
 #include <algorithm>
+#include <sstream>
+#include <iomanip>
+#include <ios>
 #include <map>
 
 #include <gos/color.h>
@@ -76,7 +79,18 @@ bool text(uint32_t& color, std::string text) {
   }
   return false;
 }
+} // namespace from
+
+namespace to {
+std::string text(const uint32_t& color, const bool& hashtag) {
+  std::stringstream stream;
+  if (hashtag) {
+    stream << "#";
+  }
+  stream << std::setfill('0') << std::setw(6) << std::hex << color;
+  return stream.str();
 }
+} // namespace to
 
 } // namespace color
 } // namespace gos

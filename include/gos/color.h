@@ -27,7 +27,11 @@ namespace color {
 
 namespace from {
 bool text(uint32_t& color, ::std::string text);
-}
+} // namespace from
+
+namespace to {
+::std::string text(const uint32_t& color, const bool& hashtag = true);
+} // namespace to
 
 template<typename T = double>
 T min(const T& a, const T& b, const T& c) {
@@ -317,6 +321,14 @@ public:
   const T& r() const { return _r; }
   const T& g() const { return _g; }
   const T& b() const { return _b; }
+
+  uint32_t number() {
+    return _b | (_g << 8) | (_r << 16);
+  }
+
+  ::std::string text(const bool& hashtag = true) {
+    return ::gos::color::to::text(number(), hashtag);
+  }
 
 private:
   T _r;

@@ -16,28 +16,36 @@ namespace color {
 
 TEST(GosColorTest, Text) {
   uint32_t color;
-  ::std::string text;
+  ::std::string text, output;
   bool result;
 
   text = "#07049b";
   result = ::gos::color::from::text(color, text);
   EXPECT_TRUE(result);
   EXPECT_EQ(0x07049b, color);
+  output = ::gos::color::to::text(color);
+  EXPECT_STREQ(text.c_str(), output.c_str());
 
   text = "f4ec04";
   result = ::gos::color::from::text(color, text);
   EXPECT_TRUE(result);
   EXPECT_EQ(0xf4ec04, color);
+  output = ::gos::color::to::text(color, false);
+  EXPECT_STREQ(text.c_str(), output.c_str());
 
   text = "lightgrey";
   result = ::gos::color::from::text(color, text);
   EXPECT_TRUE(result);
   EXPECT_EQ(0xd3d3d3, color);
+  output = ::gos::color::to::text(color);
+  EXPECT_STREQ("#d3d3d3", output.c_str());
 
   text = "hotpink";
   result = ::gos::color::from::text(color, text);
   EXPECT_TRUE(result);
   EXPECT_EQ(0xff69b4, color);
+  output = ::gos::color::to::text(color, false);
+  EXPECT_STREQ("ff69b4", output.c_str());
 
   text = "AliceBlue";
   result = ::gos::color::from::text(color, text);
@@ -182,6 +190,29 @@ TEST(GosColorTest, Brightness) {
   //    }
   //  }
   //}
+}
+
+TEST(GosColorTest, RgbNumber) {
+  ::gos::color::rgb<> rgb;
+  uint32_t number;
+
+  rgb.assign(0x01, 0x0a, 0xff);
+
+  number = rgb.number();
+  EXPECT_EQ(0x010aff, number);
+}
+
+TEST(GosColorTest, RgbText) {
+  ::gos::color::rgb<> rgb;
+  std::string text;
+
+  rgb.assign(0x01, 0x0a, 0xff);
+
+  text = rgb.text();
+  EXPECT_STREQ("#010aff", text.c_str());
+
+  text = rgb.text(false);
+  EXPECT_STREQ("010aff", text.c_str());
 }
 
 TEST(GosColorTest, SRGBf) {
